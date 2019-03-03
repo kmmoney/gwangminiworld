@@ -1,0 +1,226 @@
+사이트 : colab.research.google.com
+
+아나콘다(쥬피터 노트북 : ipynb, 파이썬 코드 파일 : py)
+
+가장 먼저 쥬피터 노트북으로 개발한 후 파이썬 코드파일과 연동하여 분석함
+* 컴퓨터에서 주피터 실행 및 인터넷으로도 드라이브를 만들어 주피터 실행 가능..
+
++를 누르면 입력창 추가
+
+쉬프트 엔터로 명령어 입력
+==============================
+1. tkinter 함수를 가져와서 사용하겠다
+
+명령어 : from tkinter import *
+
+window = Tk() #윈도우 만들어주는 함수
+
+2. 윈도우 제목 정하기
+
+window.title("나의 첫 번째 윈도우")
+
+3. 크기 / 사이즈 정하기
+
+window.geomerty("800x600")
+
+4. 계속 창 띄어놓기
+
+window.mainloop()
+
+=============================
+간단 크롤링
+
+html_str = "<html><div></div></html>" 이력 후 쉬프트 엔터
+
+bs4.BeautifulSoup
+(탭키 누르면 자동완성 됨)
+
+bsObject = bs4.BeautifulSoup(html_str,"html.parser")
+bsObject으로 html을 분석하겠다 bs4 패키지를 이용하여
+
+================================
+
+파이썬 기초 (카페 113번 글)
+
+쇼핑리스트 str으로 만들기
+shopping_list = ["우유", "사과", "배", "치즈"]
+
+print(shopping_list)
+
+print(shopping_list[0]) print(shopping_list[2]) 인덱스 활용하여 부분적으로 추출하기
+#슬라이싱 : 원데이터의 일부를 추출
+
+======================================
+
+""" 따옴표 3개 쓰면 엔터 인식할 수있게 하는 함수 (\n으로 표현)
+
+"""나는
+여러줄
+들어가요"""
+
+===========================
+전체 갯수 확인하는 함수 : len
+범위설정 시 for in range (숫자)~에서 ~까지
+for in (글자) *index 차이 사용(?)
+
+len(shopping_list)
+length = len(shopping_list)
+============================
+for x in range(length) :            : 이 R에서 괄호같은 것, 엔터 치면 자동 4칸 들여쓰기 
+
+for x in range(length): 
+    print(x, ":", shopping_list[x], "입니다")
+
+=====================
+반복문 모듈화 연습하기 * mainloop 가장 마지막에 오도록 하기
+
+from tkinter import *
+w = Tk()
+b = Button(w, text="나를 눌러요.")
+b.pack()
+I = Label(w, text = "반갑습니다.")
+I.pack()
+w.mainloop()
+
+=======================
+turtle 패키지 이용하기
+
+import turtle
+t = turtle.Pen()
+direction = input("거북이 이름: ") *input : 값 입력"
+* 느림보 입력
+direction = input("왼쪽: left, 오른쪽: right")
+direction *left 입력
+distance = input("얼마큼 갈까요??")
+distance * 50 값 입력
+while true:
+    if direction == "left" :
+        t.left(60)
+        t.forward(50)
+    if direction == "right" :
+        t.right(60)
+        t.forward(50)
+
+아래 조건문이 true일때 계속 반복해라(while)
+while 조건 안에 if가 들어가있어야 하니 if 함수 선택 후 tab키
+
+while True: 
+    direction = input("왼쪽: left, 오른쪽: right")
+    
+    if direction == "left" :
+        t.left(60)
+        t.forward(50)
+    if direction == "right" :
+        t.right(60)
+        t.forward(50)
+
+========================
+
+def : 정의하는 함수(함수를 만드는 것)
+
+def add():
+    print("나를 호출하셨군요...")
+
+add() 입력 시 나를 호출하셨군요...
+
+def add2(x, y):
+    print("두 수의 합은: ",x+y)
+add2(100, 200) 입력 시 두 수의 합은:  300
+
+def add2(x, y):
+    print("두 수의 합은: ",x+y)
+def minus(x, y):
+    print("두수의 차는:", x-y)
+def mul(x, y):
+    print("두수의 곱은:", x*y)
+def div(x, y):
+    print("두수의 나눗셈은:", x/y)
+
+=======================================
+
+num1 = input("숫자1 입력: ")
+num2 = input("숫자2 입력: ")
+print(num1 + num2) 입력 시 오류가 남
+→ int 함수 이용
+
+n1 = int(num1)
+n2 = int(num2) 입력 후
+
+print(n1 + n2) 하면 값이 나옴
+
+=======================================
+함수 : 특정한 처리 부분
+- 리턴이 없는 경우 호출해서 결과만 실행 요청 : print()
+- 리턴이 있는 경우 호출해서 결과를 받아온 후 재가공 : data = input()
+
+ex ) 음식점에서 계산을 했더니 5만원이 넘는다 5만원이 넘으면 5천원 할인_
+* 반환값이 있는 형태의 함수는 결과값을 변수에 넣어줌
+total(인원수, 음식값)
+
+def foodTotal(person) :
+    price = 5000
+    return person * price
+
+total = foodTotal(10)
+
+if(total >= 50000):
+    print("당신의 금액은 ", total-5000, "원 입니다")
+
+===============================================
+hobby = ["승마","달리기","등산","먹기"]
+
+for X in hobby:
+    print(X)
+
+hobby[3]="걷기"  * 내용 수정 필요 시
+hobby.append("날기") * 끝에 내용 추가 시
+
+print(hobby[0:2]) 0번째~1번째까지 내용 표기하기
+print(hobby[2:4]) 2번째~3번째까지 내용 표기하기
+
+
+=====================================
+email = ["hera@naver.com"]
+email2 =[]
+data1 = input("이메일 입력1")
+->이메일 입력1gardenpro@daum.net
+data2 = input("이메일 입력2")
+->이메일 입력2korea@korea.co.kr
+email.append(data1)
+email.append(data2)
+len(email)
+->3 * 데이터 값 3개로 추가된 것 확인가능
+for e in email:
+    if (e.endswith(".com")):
+        print(e, "는 닷컴회사이군요.")
+    elif(e.endswith(".net")):
+        print(e, "는 닷넷회사이군요.")
+    elif(e.endswith(".kr")) :
+        print(e, "는 한국에 있는 회사이군요.")
+    else:
+        print(e, "는 잘 모르겠어요.")
+
+->hera@naver.com 는 닷컴회사이군요.
+gardenpro@daum.net 는 닷넷회사이군요.
+korea@korea.co.kr 는 한국에 있는 회사이군요.
+=====================================
+파일 만들기
+import os
+print("나의 운영체제는", os.name)
+print("나의 작업 위치는", os.getcwd())
+with open("file1.txt", "w") as file:
+    file.write("hi...\n")
+    file.write("hi2...\n")
+    file.write("hi3...\n")
+
+-> C:\Users\PC\Documents\DataScience 작업위치에 file1.txt 파일이 생성
+
+=====================================
+텍스트 데이터는 데이터 프레임에 넣기!!
+-> 긴 데이터 형태가 되어야 한다
+-> 넓은 데이터는 긴 데이터 형태로 변환 시킨 후 분석
+=====================================
+파이썬 라이브러리 설치
+pip 명령어 사용!
+pip install bs4
+pip uninstall bs4
